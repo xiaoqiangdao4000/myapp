@@ -2,64 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/routes/app_pages.dart';
 
-// class MydrawerView extends GetView {
-//   const MydrawerView({Key? key}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Drawer(
-//       elevation: 30,
-//       child: MediaQuery.removePadding(
-//         context: context,
-//         //移除抽屉菜单顶部默认的空白
-//         removeTop: true,
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: <Widget>[
-//             Padding(
-//               padding: const EdgeInsets.only(top: 100.0),
-//               child: Row(
-//                 children: <Widget>[
-//                   Padding(
-//                     padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0),
-//                     child: ClipOval(
-//                       child: Image.asset(
-//                         "images/head1.jpg",
-//                         width: 60,
-//                       ),
-//                     ),
-//                   ),
-//                   const Text(
-//                     "仙仙妹妹",
-//                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                   )
-//                 ],
-//               ),
-//             ),
-//             Expanded(
-//               child: ListView(
-//                 children: <Widget>[
-//                   ListTile(
-//                     leading: const Icon(Icons.person),
-//                     title: const Text('Personal'),
-//                   ),
-//                   ListTile(
-//                     leading: const Icon(Icons.message),
-//                     title: const Text('information'),
-//                   ),
-//                   ListTile(
-//                     leading: const Icon(Icons.settings),
-//                     title: const Text('about'),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 class MydrawerView extends GetView {
   const MydrawerView({Key? key}) : super(key: key);
   @override

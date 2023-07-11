@@ -7,10 +7,10 @@ import '../controllers/login_controller.dart';
 class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,15 +22,52 @@ class LoginView extends GetView<LoginController> {
               logoBtn(),
               forgotPassword(),
               register(),
+              downBtn(),
             ]),
       ),
     );
   }
 
+  //语言按钮
+  Widget languageBtn() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 0.0),
+      child: ElevatedButton.icon(
+        icon: const Icon(Icons.language),
+        label: const Text("语言"),
+        onPressed: () {
+          downBtn();
+        },
+      ),
+    );
+  }
+
+  //下拉按钮
+  Widget downBtn() {
+    return DropdownButton(
+        value:  controller.DropdownBtnValue.value,
+        icon: const Icon(Icons.language),
+        iconSize: 25,
+        iconEnabledColor: Colors.blue,
+        hint: const Text(
+          '切换语言',
+          style: TextStyle(
+              color: Colors.blue, fontSize: 16, fontWeight: FontWeight.w500),
+        ),
+        items: const [
+          DropdownMenuItem(value: 1, child: Text('中文')),
+          DropdownMenuItem(value: 2, child: Text('English')),
+          DropdownMenuItem(value: 3, child: Text('Tiếng Việt')),
+        ],
+        onChanged: (value) {
+          controller.onchangeBtnValue(value);
+        });
+  }
+
 //logo
   Widget logo() {
     return Padding(
-      padding: const EdgeInsets.only(top: 180.0),
+      padding: const EdgeInsets.only(top: 150.0),
       child: Image.asset(
         'images/logo.png',
         width: 100,

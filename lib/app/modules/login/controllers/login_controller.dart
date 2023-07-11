@@ -6,13 +6,22 @@ import '../../../routes/app_pages.dart';
 class LoginController extends GetxController {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final FocusNode focusNode = FocusNode();
+  var DropdownBtnValue = 1.obs;
+
+  onchangeBtnValue(value) {
+    DropdownBtnValue.value = value;
+    //update();
+  }
 
   onlogin() {
     var username = usernameController.text.trim();
     var password = passwordController.text.trim();
 
     if (username.isEmpty) {
-      Get.defaultDialog(title: '提示',middleText: '用户名不能为空！',
+      Get.defaultDialog(
+        title: '提示',
+        middleText: '用户名不能为空！',
       );
       return;
     }

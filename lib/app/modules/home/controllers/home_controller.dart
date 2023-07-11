@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   var scaffoldKey = GlobalKey<ScaffoldState>();
+  var bottomBarIndex = 0.obs;
 
  void openDrawer() {
     scaffoldKey.currentState?.openDrawer();
@@ -11,4 +12,10 @@ class HomeController extends GetxController {
   void closeDrawer() {
     scaffoldKey.currentState?.openEndDrawer();
   }
+
+  changeBottomBarIndex(int index) {
+    bottomBarIndex.value = index;
+    print( bottomBarIndex.value);
+  }
+
 }

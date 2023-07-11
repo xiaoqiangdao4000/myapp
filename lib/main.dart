@@ -8,6 +8,19 @@ void main() {
       title: '超级视频',
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
+      builder: (context, child) => Scaffold(
+        resizeToAvoidBottomInset:false,
+        body: GestureDetector(
+          onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus &&
+                currentFocus.focusedChild != null) {
+              FocusManager.instance.primaryFocus?.unfocus();
+            }
+          },
+          child: child,
+        ),
+      ),
     )
   );
 }
