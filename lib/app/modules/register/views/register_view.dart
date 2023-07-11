@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/login_controller.dart';
+import '../controllers/register_controller.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
-
-  
+class RegisterView extends GetView<RegisterController> {
+  const RegisterView({Key? key}) : super(key: key);
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +18,8 @@ class LoginView extends GetView<LoginController> {
               logoName(),
               userNameEdit(),
               passwordEdit(),
-              logoBtn(),
-              forgotPassword(),
-              register(),
+              registerBtn(),
+              backLogin(),
             ]),
       ),
     );
@@ -85,46 +83,33 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  //登陆按钮
-  Widget logoBtn() {
+  //注册按钮
+  Widget registerBtn() {
     return Padding(
         padding: const EdgeInsets.only(top: 30.0),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(minimumSize: const Size(300, 45)),
           onPressed: () {
-            controller.onlogin();
+            controller.onRegister();
           },
           child: const Text(
-            "登陆",
+            "注册用户",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ));
   }
 
-  //忘记密码
-  Widget forgotPassword() {
+  //返回登陆
+  Widget backLogin() {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: TextButton(
         child: const Text(
-          "忘记密码？",
-        ),
-        onPressed: () {},
-      ),
-    );
-  }
-
-  //注册
-  Widget register() {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: TextButton(
-        child: const Text(
-          "创建账号",
+          "返回登陆",
           style: TextStyle(fontSize: 20, color: Colors.blue),
         ),
         onPressed: () {
-          controller.onRegister();
+          controller.onBackLogin();
         },
       ),
     );
