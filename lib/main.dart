@@ -8,6 +8,9 @@ void main() {
       title: '超级视频',
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
+       theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
       builder: (context, child) => Scaffold(
         resizeToAvoidBottomInset:false,
         body: GestureDetector(

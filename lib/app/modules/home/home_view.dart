@@ -1,42 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../mydrawer/mydrawer_view.dart';
-import '../controllers/home_controller.dart';
+import 'package:myapp/app/modules/homepage/homepage_view.dart';
+import 'package:myapp/app/modules/livepage/livepage_view.dart';
+import 'package:myapp/app/modules/mypage/mypage_view.dart';
+import 'package:myapp/app/modules/stockpage/stockpage_view.dart';
+import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
 
-  int _currentIndex = 0;
   List<Widget> bodyPageList = [
-    Center(
-      child: Text("tab1"),
-    ),
-    Center(
-      child: Text("tab2"),
-    ),
+    HomepageView(),
+    StockpageView(),
+    LivepageView(),
+    MypageView(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          '超级Demo',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
-            size: 30,
-          ),
-          onPressed: () {
-            controller.openDrawer();
-          },
-        ),
-      ),
-      key: controller.scaffoldKey,
-      drawer: const MydrawerView(),
       body: Obx(() => bodyPageList[controller.bottomBarIndex.value]),
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             // 当前菜单下标

@@ -103,7 +103,7 @@ class MydrawerView extends GetView {
   //退出登陆按钮
   Widget logoutBtn() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(100, 250, 100, 0),
+      padding: const EdgeInsets.fromLTRB(100, 150, 100, 0),
       child: TextButton(
           onPressed: () {
             Get.offNamed(Routes.login);

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../routes/app_pages.dart';
+import 'package:myapp/app/routes/app_pages.dart';
 
 class LoginController extends GetxController {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final FocusNode focusNode = FocusNode();
-  var DropdownBtnValue = 1.obs;
+  var dropDownBtnView = 1.obs;
 
   onchangeBtnValue(value) {
-    DropdownBtnValue.value = value;
-    //update();
+    dropDownBtnView.value = value;
+    update();
   }
 
   onlogin() {

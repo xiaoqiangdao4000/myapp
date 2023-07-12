@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
-
+import 'package:myapp/app/modules/home/home_binding.dart';
+import 'package:myapp/app/modules/home/home_view.dart';
+import 'package:myapp/app/modules/login/login_binding.dart';
+import 'package:myapp/app/modules/login/login_view.dart';
+import 'package:myapp/app/modules/register/register_binding.dart';
+import 'package:myapp/app/modules/register/register_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -16,7 +15,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.home,
-      page: () =>  HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(

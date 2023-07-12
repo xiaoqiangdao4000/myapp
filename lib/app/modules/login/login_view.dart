@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
-import '../controllers/login_controller.dart';
+import 'package:myapp/app/modules/login/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
@@ -28,27 +26,28 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  //语言按钮
-  Widget languageBtn() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 0.0),
-      child: ElevatedButton.icon(
-        icon: const Icon(Icons.language),
-        label: const Text("语言"),
-        onPressed: () {
-          downBtn();
-        },
-      ),
-    );
-  }
+  // //语言按钮
+  // Widget languageBtn() {
+  //   return Padding(
+  //     padding: const EdgeInsets.only(top: 0.0),
+  //     child: ElevatedButton.icon(
+  //       icon: const Icon(Icons.language),
+  //       label: const Text("语言"),
+  //       onPressed: () {
+  //       //  downBtn();
+  //       },
+  //     ),
+  //   );
+  // }
 
   //下拉按钮
   Widget downBtn() {
-    return DropdownButton(
-        value:  controller.DropdownBtnValue.value,
+    return Obx(() => DropdownButton(
+        value: controller.dropDownBtnView.value,
         icon: const Icon(Icons.language),
         iconSize: 25,
         iconEnabledColor: Colors.blue,
+        isExpanded: false,
         hint: const Text(
           '切换语言',
           style: TextStyle(
@@ -61,7 +60,7 @@ class LoginView extends GetView<LoginController> {
         ],
         onChanged: (value) {
           controller.onchangeBtnValue(value);
-        });
+        }));
   }
 
 //logo
