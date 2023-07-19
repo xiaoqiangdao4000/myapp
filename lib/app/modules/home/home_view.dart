@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/home/home_controller.dart';
 import 'package:myapp/app/modules/homepage/homepage_view.dart';
 import 'package:myapp/app/modules/livepage/livepage_view.dart';
 import 'package:myapp/app/modules/mypage/mypage_view.dart';
 import 'package:myapp/app/modules/stockpage/stockpage_view.dart';
-import 'home_controller.dart';
+
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
