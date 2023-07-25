@@ -2,15 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/homepage/wynews_mode.dart';
+import 'package:myapp/app/modules/newspage/wynews_mode.dart';
 import 'package:myapp/app/modules/mydrawer/mydrawer_view.dart';
 import '../util/constants.dart';
-import 'homepage_controller.dart';
+import 'newspage_controller.dart';
 
-class HomepageView extends GetView {
-  HomepageView({Key? key}) : super(key: key);
+class NewspageView extends GetView {
+  NewspageView({Key? key}) : super(key: key);
 
-  final homepageController = Get.put(HomepageController());
+  final homepageController = Get.put(NewspageController());
 
   @override
   Widget build(BuildContext context) {

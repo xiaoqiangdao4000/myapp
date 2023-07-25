@@ -2,11 +2,11 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/homepage/wynews_mode.dart';
+import 'package:myapp/app/modules/newspage/wynews_mode.dart';
 import 'package:myapp/app/modules/util/constants.dart';
 import 'package:dio/dio.dart';
 
-class HomepageController extends GetxController {
+class NewspageController extends GetxController {
   var refreshCount = 10.obs;
   late EasyRefreshController refreshController;
   var scaffoldKey = GlobalKey<ScaffoldState>();

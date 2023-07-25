@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/home/home_binding.dart';
 import 'package:myapp/app/modules/home/home_view.dart';
-import 'package:myapp/app/modules/homepage/homepage_controller.dart';
-import 'package:myapp/app/modules/homepage/homepage_view.dart';
 import 'package:myapp/app/modules/login/login_binding.dart';
 import 'package:myapp/app/modules/login/login_view.dart';
 import 'package:myapp/app/modules/register/register_binding.dart';
