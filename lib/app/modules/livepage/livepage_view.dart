@@ -10,12 +10,12 @@ class LivepageView extends GetView<LivepageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LivepageView'),
+        title: const Text('导师讲课'),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
-          'LivepageView is working',
+          '导师讲课，同学们开客了，都来学习吧',
           style: TextStyle(fontSize: 20),
         ),
       ),

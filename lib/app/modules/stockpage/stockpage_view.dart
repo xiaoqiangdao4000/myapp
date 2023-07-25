@@ -8,12 +8,12 @@ class StockpageView extends GetView<StockpageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('StockpageView'),
+        title: const Text('股票跟踪'),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
-          'StockpageView is working',
+          '股票跟踪 is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

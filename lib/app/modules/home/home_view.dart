@@ -5,6 +5,7 @@ import 'package:myapp/app/modules/homepage/homepage_view.dart';
 import 'package:myapp/app/modules/livepage/livepage_view.dart';
 import 'package:myapp/app/modules/mypage/mypage_view.dart';
 import 'package:myapp/app/modules/stockpage/stockpage_view.dart';
+import 'package:myapp/app/modules/trade/trade_view.dart';
 
 
 class HomeView extends GetView<HomeController> {
@@ -13,6 +14,7 @@ class HomeView extends GetView<HomeController> {
   List<Widget> bodyPageList = [
     HomepageView(),
     StockpageView(),
+    TradeView(),
     LivepageView(),
     MypageView(),
   ];
@@ -32,10 +34,11 @@ class HomeView extends GetView<HomeController> {
             fixedColor: Colors.red,
             type: BottomNavigationBarType.fixed,
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "首页"),
-              BottomNavigationBarItem(icon: Icon(Icons.category), label: "股票"),
-              BottomNavigationBarItem(icon: Icon(Icons.live_tv), label: "视频"),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: "我的"),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "新闻首页"),
+              BottomNavigationBarItem(icon: Icon(Icons.category), label: "股票跟踪"),
+              BottomNavigationBarItem(icon: Icon(Icons.transgender), label: "交易记录"),
+              BottomNavigationBarItem(icon: Icon(Icons.live_tv), label: "导师讲课"),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: "我的信息"),
             ],
           )),
     );
