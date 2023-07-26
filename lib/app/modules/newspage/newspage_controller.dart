@@ -2,6 +2,7 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/common/user.dart';
 import 'package:myapp/app/modules/newspage/wynews_mode.dart';
 import 'package:myapp/app/modules/util/constants.dart';
 import 'package:dio/dio.dart';
@@ -35,6 +36,7 @@ class NewspageController extends GetxController {
       controlFinishLoad: true,
     );
     print('初始化HomepageController');
+  
     getDatas(requestStart);
   }
 
@@ -74,9 +76,10 @@ class NewspageController extends GetxController {
     }
   }
 
-  // //处理请求到的数据
+  //处理请求到的数据
   void dealDatas(jsonString, int requestType) {
     try {
+      User user = User();
       //转换为模型
       WynewsMode responseJson = wynewsModeFromJson(jsonString);
 
@@ -86,6 +89,9 @@ class NewspageController extends GetxController {
         for (var i = 0; i < responseJson.bbm54PgAwangning.length; i++) {
           listData.add(responseJson.bbm54PgAwangning[i]);
         }
+        //保存新闻数据
+        user.setZhNews(jsonString);
+
         Fluttertoast.showToast(
             msg: "刷新成功",
             toastLength: Toast.LENGTH_SHORT,
@@ -98,6 +104,8 @@ class NewspageController extends GetxController {
         for (var i = 0; i < responseJson.bbm54PgAwangning.length; i++) {
           listData.add(responseJson.bbm54PgAwangning[i]);
         }
+        //保存新闻数据
+        user.setZhNews(jsonString);
       }
     } catch (e) {
       isSuccessful.value = false;

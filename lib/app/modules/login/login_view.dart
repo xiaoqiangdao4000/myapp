@@ -77,11 +77,11 @@ class LoginView extends GetView<LoginController> {
 
 //logo名字
   Widget logoName() {
-    return const Padding(
-      padding: EdgeInsets.only(top: 1.0),
+    return  Padding(
+      padding:const EdgeInsets.only(top: 1.0),
       child: Text(
-        '超级Demo',
-        style: TextStyle(
+        'appName'.tr,
+        style: const TextStyle(
             fontSize: 25.0,
             fontWeight: FontWeight.bold,
             color: Colors.lightBlue),

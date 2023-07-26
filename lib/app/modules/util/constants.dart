@@ -7,6 +7,10 @@ const int requestRefresh = 000002;
 // 加载更多请求
 const int requestLoadMore = 000003;
 
+const String languageChinese = 'zh_CN';
+const String languageEnglish = 'en_US';
+const String languageVueNan = 'vi_VN';
+
 ClassicHeader getClassicHeader() {
   return const ClassicHeader(
     dragText: '下拉刷新数据',

@@ -32,11 +32,10 @@ class NewspageView extends GetView {
       ),
       key: homepageController.scaffoldKey,
       drawer: const MydrawerView(),
-      body: 
-          Center(
-            //padding: const EdgeInsets.only(top: 100.0),
-            child: Obx(() => getBody(context)),
-          ),
+      body: Center(
+        //padding: const EdgeInsets.only(top: 100.0),
+        child: Obx(() => getBody(context)),
+      ),
     );
   }
 
