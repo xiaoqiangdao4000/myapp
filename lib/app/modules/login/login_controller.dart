@@ -16,6 +16,23 @@ class LoginController extends GetxController {
   void onInit() {
     super.onInit();
 
+    //语言配置
+    var language = Global.g_user.getLanguage();
+    if (language == 1) //中文
+    {
+      dropDownBtnView.value = 1;
+      messagesController.changeLanguage('zh', "CN");
+    } else if (language == 2) //英文
+    {
+      dropDownBtnView.value = 2;
+      messagesController.changeLanguage('en', "US");
+    } else if (language == 3) //越南语
+    {
+      dropDownBtnView.value = 3;
+      messagesController.changeLanguage('vi', "VN");
+    }
+
+    //初始化用户账户
     String username = Global.g_user.getUserName();
     String password = Global.g_user.getPassword();
     if (username.isNotEmpty) {
@@ -31,12 +48,15 @@ class LoginController extends GetxController {
     if (value == 1) //中文
     {
       messagesController.changeLanguage('zh', "CN");
+      Global.g_user.setLanguage(1);
     } else if (value == 2) //英文
     {
       messagesController.changeLanguage('en', "US");
+      Global.g_user.setLanguage(2);
     } else if (value == 3) //越南语
     {
       messagesController.changeLanguage('vi', "VN");
+      Global.g_user.setLanguage(3);
     }
 
     update();
@@ -65,6 +85,6 @@ class LoginController extends GetxController {
   }
 
   onRegister() {
-    Get.toNamed(Routes.register);
+    Get.offNamed(Routes.register);
   }
 }

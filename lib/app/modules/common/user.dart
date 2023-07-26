@@ -2,80 +2,12 @@ import 'dart:convert';
 
 import 'package:myapp/app/modules/common/global.dart';
 
-UserInfoMode userInfoFromJson(String str) =>
-    UserInfoMode.fromJson(json.decode(str));
-String userInfoToJson(UserInfoMode data) => json.encode(data.toJson());
-
-class UserInfoMode {
-  String username;
-  String password;
-  int islogin;
-  int theme;
-  String language;
-  String zhNews;
-  String enNews;
-  String vnNews;
-  String zhStocks;
-  String enStocks;
-  String vnStocks;
-  String myStocks;
-  String trade;
-
-  UserInfoMode({
-    required this.username,
-    required this.password,
-    required this.islogin,
-    required this.theme,
-    required this.language,
-    required this.zhNews,
-    required this.enNews,
-    required this.vnNews,
-    required this.zhStocks,
-    required this.enStocks,
-    required this.vnStocks,
-    required this.myStocks,
-    required this.trade,
-  });
-
-  factory UserInfoMode.fromJson(Map<String, dynamic> json) => UserInfoMode(
-        username: json["username"],
-        password: json["password"],
-        islogin: json["islogin"],
-        theme: json["theme"],
-        language: json["language"],
-        zhNews: json["zh_news"],
-        enNews: json["en_news"],
-        vnNews: json["vn_news"],
-        zhStocks: json["zh_stocks"],
-        enStocks: json["en_stocks"],
-        vnStocks: json["vn_stocks"],
-        myStocks: json["my_stocks"],
-        trade: json["trade"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "username": username,
-        "password": password,
-        "islogin": islogin,
-        "theme": theme,
-        "language": language,
-        "zh_news": zhNews,
-        "en_news": enNews,
-        "vn_news": vnNews,
-        "zh_stocks": zhStocks,
-        "en_stocks": enStocks,
-        "vn_stocks": vnStocks,
-        "my_stocks": myStocks,
-        "trade": trade,
-      };
-}
-
 class User {
   String username = '';
   String password = '';
   int islogin = 0;
   int theme = 0;
-  String language = '';
+  int language = 1;
   String zhNews = '';
   String enNews = '';
   String vnNews = '';
@@ -116,14 +48,14 @@ class User {
 
   //获取语言
   getLanguage() {
-    language = Global.g_shared.getString('language') ?? '';
+    language = Global.g_shared.getInt('language') ?? 1;
     return language;
   }
 
   //设置语言
-  setLanguage(String data) {
+  setLanguage(int data) {
     language = data;
-    Global.g_shared.setString("language", language);
+    Global.g_shared.setInt("language", language);
   }
 
   //设置中国新闻

@@ -48,9 +48,9 @@ class LoginView extends GetView<LoginController> {
         iconSize: 25,
         iconEnabledColor: Colors.blue,
         isExpanded: false,
-        hint: const Text(
-          '切换语言',
-          style: TextStyle(
+        hint:  Text(
+          'switchlanguage'.tr,
+          style:const TextStyle(
               color: Colors.blue, fontSize: 16, fontWeight: FontWeight.w500),
         ),
         items: const [
@@ -77,8 +77,8 @@ class LoginView extends GetView<LoginController> {
 
 //logo名字
   Widget logoName() {
-    return  Padding(
-      padding:const EdgeInsets.only(top: 1.0),
+    return Padding(
+      padding: const EdgeInsets.only(top: 1.0),
       child: Text(
         'appName'.tr,
         style: const TextStyle(
@@ -96,8 +96,8 @@ class LoginView extends GetView<LoginController> {
       child: TextField(
         controller: controller.usernameController,
         textInputAction: TextInputAction.next,
-        decoration: const InputDecoration(
-          labelText: '用户名',
+        decoration: InputDecoration(
+          labelText: 'username'.tr,
         ),
         // onEditingComplete: () =>
         //    FocusScope.of(context).requestFocus(_passwordFocusNode),
@@ -112,8 +112,8 @@ class LoginView extends GetView<LoginController> {
       child: TextField(
         controller: controller.passwordController,
         keyboardType: TextInputType.visiblePassword,
-        decoration: const InputDecoration(
-          labelText: '密码',
+        decoration: InputDecoration(
+          labelText: 'password'.tr,
         ),
         obscureText: true,
         // focusNode: _passwordFocusNode,
@@ -130,9 +130,9 @@ class LoginView extends GetView<LoginController> {
           onPressed: () {
             controller.onlogin();
           },
-          child: const Text(
-            "登陆",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          child: Text(
+            "login".tr,
+            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ));
   }
@@ -142,8 +142,8 @@ class LoginView extends GetView<LoginController> {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: TextButton(
-        child: const Text(
-          "忘记密码？",
+        child: Text(
+          "forgot_password".tr,
         ),
         onPressed: () {},
       ),
@@ -155,9 +155,9 @@ class LoginView extends GetView<LoginController> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextButton(
-        child: const Text(
-          "创建账号",
-          style: TextStyle(fontSize: 20, color: Colors.blue),
+        child: Text(
+          "register".tr,
+          style: const TextStyle(fontSize: 20, color: Colors.blue),
         ),
         onPressed: () {
           controller.onRegister();

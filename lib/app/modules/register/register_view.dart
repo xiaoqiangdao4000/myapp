@@ -38,11 +38,11 @@ class RegisterView extends GetView<RegisterController> {
 
 //logo名字
   Widget logoName() {
-    return const Padding(
-      padding: EdgeInsets.only(top: 1.0),
+    return  Padding(
+      padding:const EdgeInsets.only(top: 1.0),
       child: Text(
-        '超级Demo',
-        style: TextStyle(
+        'appName'.tr,
+        style:const TextStyle(
             fontSize: 25.0,
             fontWeight: FontWeight.bold,
             color: Colors.lightBlue),
@@ -57,8 +57,8 @@ class RegisterView extends GetView<RegisterController> {
       child: TextField(
         controller: controller.usernameController,
         textInputAction: TextInputAction.next,
-        decoration: const InputDecoration(
-          labelText: '用户名',
+        decoration:  InputDecoration(
+          labelText: 'username'.tr,
         ),
         // onEditingComplete: () =>
         //    FocusScope.of(context).requestFocus(_passwordFocusNode),
@@ -73,8 +73,8 @@ class RegisterView extends GetView<RegisterController> {
       child: TextField(
         controller: controller.passwordController,
         keyboardType: TextInputType.visiblePassword,
-        decoration: const InputDecoration(
-          labelText: '密码',
+        decoration:  InputDecoration(
+          labelText: 'password'.tr,
         ),
         obscureText: true,
         // focusNode: _passwordFocusNode,
@@ -91,9 +91,9 @@ class RegisterView extends GetView<RegisterController> {
           onPressed: () {
             controller.onRegister();
           },
-          child: const Text(
-            "注册用户",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          child:  Text(
+            "register_account".tr,
+            style:const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ));
   }
@@ -103,9 +103,9 @@ class RegisterView extends GetView<RegisterController> {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: TextButton(
-        child: const Text(
-          "返回登陆",
-          style: TextStyle(fontSize: 20, color: Colors.blue),
+        child:  Text(
+          "back_login".tr,
+          style: const TextStyle(fontSize: 20, color: Colors.blue),
         ),
         onPressed: () {
           controller.onBackLogin();
