@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/common/global.dart';
 import 'package:myapp/app/modules/common/user.dart';
+import 'package:myapp/app/modules/newspage/cjnews_mode.dart';
 import 'package:myapp/app/modules/newspage/wynews_mode.dart';
 import 'package:myapp/app/modules/util/constants.dart';
 import 'package:dio/dio.dart';
@@ -45,6 +46,7 @@ class NewspageController extends GetxController {
     } else {
       getDatas(requestStart);
     }
+    //getDatas(requestStart);
   }
 
   @override
@@ -60,6 +62,8 @@ class NewspageController extends GetxController {
     }
     String url =
         "https://3g.163.com/touch/reconstruct/article/list/BBM54PGAwangning/$startIndex-$endIndex.html";
+    //String url =
+    //    'https://3g.163.com/touch/reconstruct/article/list/BA8EE5GMwangning/$startIndex-$endIndex.html';
     print("开始请求数据url:" + url);
     var response = await Dio().get(url);
     String responseStr = response.data;
@@ -69,6 +73,7 @@ class NewspageController extends GetxController {
       String jsonString =
           responseStr.substring("artiList(".length, responseStr.length - 1);
       dealDatas(jsonString, requestType);
+     // cjDealDatas(jsonString, requestType);
       startIndex = endIndex + 1;
       endIndex = startIndex + 9;
     } else {
@@ -80,6 +85,41 @@ class NewspageController extends GetxController {
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.black,
           textColor: Colors.white);
+    }
+  }
+
+  //处理请求到的数据
+  void cjDealDatas(jsonString, int requestType) {
+    try {
+      //转换为模型
+      NewsStocks responseJson = newsStocksFromJson(jsonString);
+      //刷新数据
+      if (requestType == requestRefresh) {
+        listData.clear();
+        for (var i = 0; i < responseJson.ba8Ee5GMwangning.length; i++) {
+          listData.add(responseJson.ba8Ee5GMwangning[i]);
+        }
+        //保存新闻数据
+         Global.g_user.setZhNews(jsonString);
+
+        Fluttertoast.showToast(
+            msg: "刷新成功",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black,
+            textColor: Colors.white);
+      } else {
+        //加载更多
+        for (var i = 0; i < responseJson.ba8Ee5GMwangning.length; i++) {
+          listData.add(responseJson.ba8Ee5GMwangning[i]);
+        }
+        //保存新闻数据
+        Global.g_user.setZhNews(jsonString);
+      }
+    } catch (e) {
+      isSuccessful.value = false;
+      print("异常.........==》" + e.toString());
     }
   }
 

@@ -8,6 +8,7 @@ abstract class Routes {
   static const register = _Paths.register;
   static const drawer = _Paths.drawer;
   static const homepage = _Paths.homepage;
+  static const newswebview = _Paths.newswebview;
   static const MYPAGE = _Paths.MYPAGE;
   static const STOCKPAGE = _Paths.STOCKPAGE;
   static const LIVEPAGE = _Paths.LIVEPAGE;
@@ -20,6 +21,7 @@ abstract class _Paths {
   static const register = '/register';
   static const drawer = '/drawer';
   static const homepage = '/homepage';
+  static const newswebview = '/newswebview';
   static const MYPAGE = '/mypage';
   static const STOCKPAGE = '/stockpage';
   static const LIVEPAGE = '/livepage';

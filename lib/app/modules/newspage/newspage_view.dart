@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/newspage/cjnews_mode.dart';
 import 'package:myapp/app/modules/newspage/wynews_mode.dart';
 import 'package:myapp/app/modules/mydrawer/mydrawer_view.dart';
+import 'package:myapp/app/routes/app_pages.dart';
 import '../util/constants.dart';
 import 'newspage_controller.dart';
 
@@ -27,6 +29,7 @@ class NewspageView extends GetView {
           ),
           onPressed: () {
             homepageController.openDrawer();
+           // homepageController.getDatas(requestRefresh);
           },
         ),
       ),
@@ -79,7 +82,7 @@ class NewspageView extends GetView {
         );
       }
     } else {
-      EasyRefresh(
+      return EasyRefresh(
         controller: homepageController.refreshController,
         header: getClassicHeader(),
         footer: getClassicFooter(),
@@ -113,6 +116,7 @@ class NewspageView extends GetView {
 
   //列表item
   Widget getItem(int i) {
+    //Ba8Ee5GMwangning data = homepageController.listData[i] as Ba8Ee5GMwangning;
     Bbm54PgAwangning data = homepageController.listData[i] as Bbm54PgAwangning;
     //String type = homepageController.listData[i];
     // if ("main" == type) {
@@ -220,9 +224,11 @@ class NewspageView extends GetView {
 
   //列表点击
   void onItemClick(int i, String articleTitle) {
-    print('点击列表');
-//     String h5_url = (listData[i].data as BBM54PGAwangning).url;
-//     String title= (listData[i].data as BBM54PGAwangning).title;
+    String h5_url = homepageController.listData[i].url;
+    String title = homepageController.listData[i].title;
+
+    print('点击列表 = ' + h5_url + ',' + title);
+    Get.toNamed(Routes.newswebview, arguments: homepageController.listData[i]);
 //     Navigator.push(
 //         context,
 //         new MaterialPageRoute(

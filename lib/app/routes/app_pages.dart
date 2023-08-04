@@ -5,6 +5,7 @@ import 'package:myapp/app/modules/login/login_binding.dart';
 import 'package:myapp/app/modules/login/login_view.dart';
 import 'package:myapp/app/modules/register/register_binding.dart';
 import 'package:myapp/app/modules/register/register_view.dart';
+import 'package:myapp/app/modules/webview/news_webview.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -27,6 +28,11 @@ class AppPages {
       name: _Paths.register,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.newswebview,
+      page: () =>  NewsWebView(),
+    //  binding: RegisterBinding(),
     ),
   ];
 }
